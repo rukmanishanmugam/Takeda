@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="68.5" height="70.5" viewBox="0 0 68.5 70.5">
+  <g id="Date" transform="translate(0.75 0.75)">
+    <g id="Icon">
+      <path id="Rectangle" d="M5,0H62a5,5,0,0,1,5,5V19a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5A5,5,0,0,1,5,0Z" fill="#071d49" stroke="#071d49" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Rectangle_Copy_4" data-name="Rectangle Copy 4" d="M0,0H67V38.642L56,50H5a5,5,0,0,1-5-5Z" transform="translate(0 19)" fill="#fff" stroke="#071d49" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path" d="M0,11.358V5A5,5,0,0,1,5,0h6" transform="translate(56 57.642)" fill="none" stroke="#071d49" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./register.css" />
+    <title>Registration Page</title>
+
+    
+</head>
+
+<body>
+    <div class="medicarePI">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <!-- <div>
+                    <h6>Program registration</h6>
+                    <h1 class="program-title">Medicare & PI</h1>
+                    <div class="program-description">
+                        <p>Please complete the information in this form for everyone who’s attending. Attendees may add up to two guests.</p>
+                    </div>
+                    </div> -->
+                    <div class="prog-desc">
+                        <h6>Program registration</h6>
+                        <h1>Medicare & PI</h1>
+                        <p>Please complete the information in this form for everyone who’s attending. Attendees may add up to two guests.</p>
+                    </div>
+                </div>
+    
+                <div class="col-lg-6 col-md-12">
+                    <div class="event-card">
+                        <div class="item-list-title">
+                            <ul>
+                                <li>
+                                 About this Program
+                                </li>
+                                <li>
+                                 Saturday at 12:00PM ET
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="event-date">
+                            <div class="month">Jun</div>
+                            <div class="date">22</div>
+                        </div> 
+                        <div class="item-list">
+                            <ul>
+                                <li>
+                                    <h6>speakers</h6>
+                                    Test LSD Speaker1; Test LSD speaker2
+                                </li>
+                                <li>
+                                    <h6>Hosted By</h6>
+                                    [LSD rep]
+                                </li>
+                                <li>
+                                    <h6>Program Topic</h6>
+                                    Takeda Educational Program
+                                </li>
+                                <li>
+                                    <h6>Location</h6>
+                                    Virtual Webcast
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resgistration-form">
+        <div class="container">
+            <form class="form" id="form">
+                <div class="reqField">
+                    <span class="star"></span> <p>Fields with an asterisk are required</p>
+                </div>
+            
+                <div class="textDropdown">
+               
+                    <label class="dropdown" for="dropdown"> I’m interested in primary immunodeficiency (PI) because I’m</label>
+                    <select id="dropdown" name="dropdown" onchange="showFormField()" >
+                        <option value="" disabled selected>my PI experience</option>
+                        <option value="withPImyself">living with PI myself</option>
+                        <option value="carePartner">a care partner for someone with PI</option>
+                    </select><span class="star"></span>
+                </div>
+                <p class="formFields">Hello! My first name is
+                    <input id="firstNameInput" type="text" placeholder="my first name" maxlength="20"><span class="star"></span>
+                    and my last name is
+                    <input id="lastNameInput" type="text" placeholder="my last name" maxlength="20" >.<span class="star"></span>
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    I'm
+                    <span id="age-error-tooltip" class="error-tooltip" data-error="Error: Age must be 18 or older.">
+                    <input id="ageInput" type="number" placeholder="my age" onClick="restrictToTwoDigits()" required><span class="star"></span>
+                    </span> years old.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    And you can call me about this program at 
+                    <input id="phoneInput" type="text" placeholder="my phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >.<span class="star"></span>
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    My email is 
+                    <span id="email-error-invalid-tooltip" class="error-tooltip" data-error="Error: Invalid Email.">
+                    <input id="emailInput" type="email" placeholder="my email address" ><span class="star"></span>
+                    </span>
+                    So you can send me program information and details.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    And again,it's
+                    <span id="email-error-tooltip" class="error-tooltip" data-error="Error: Email addresses do not match.">
+                    <input id="confirmEmailInput" type="email" placeholder="my email address" ><span class="star"></span>
+                    </span> to conform it's correct.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    I found out about this program when
+                    <select id="howIHeard" name="dropdown" >
+                        <option value="0" disabled selected>how I heard.</option>
+                        <option value="1">I got a phone call from MyIgSource</option>
+                        <option value="2">I saw a posting online</option>
+                        <option value="3">I saw a social media post</option>
+                        <option value="4">a family member or friend mentioned it</option>
+                        <option value="5">my doctor's office told me</option>
+                        <option value="6">I got an invitation in the mail/I got an invitation in my email.</option>
+                    </select><span class="star"></span>
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                </p>
+                <div id="carePartnerForm">
+                <div class="addGuest" id="addGuest">
+                    <span class="guest1" id="guest1">You may add upto 2 guests</span>
+                    <div>
+                        <svg id="addIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <rect x="6" y="6" width="11" height="11" fill="black" />
+                            <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,13h-4v4h-2v-4H7v-2h4V7h2v4h4V13z" fill="#72c7e7" />
+                        </svg>
+                        <span class="guest1_add" id="guest1_add">Add my Guest</span>
+                    </div>
+                </div>
+                <div class="guestForm" id="guestForm" style="display: none;">
+                    <p class="formFields">My guest's first name is
+                        <input id="guestfirstNameInput1" type="text" placeholder="their first name" maxlength="20"><span class="star"></span>
+                        and their last name is
+                        <input id="guestlastNameInput1" type="text" placeholder="their last name" maxlength="20" ><span class="star"></span>
+                        They're
+                        <input id="guestageInput1" type="number" placeholder="their age*" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
+                         And you can call me about this program at 
+                        <input id="guestphoneInput1" type="text" placeholder="their phone number*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
+                         Their email is 
+                        <input id="guestemailInput1" type="email" placeholder="their email address*" ><span class="star"></span>
+                        So you can send them program information and details.And again, it's
+                        <input id="guestconfirmEmailInput1" type="email" placeholder="their email address*" ><span class="star"></span> to conform it's correct.
+                        I found out about this program when
+                        <select id="guestdropdown1" name="dropdown" >
+                            <option value="" disabled selected>how I heard.</option>
+                        <option value="">I got a phone call from MyIgSource</option>
+                        <option value="">I saw a posting online</option>
+                        <option value="">I saw a social media post</option>
+                        <option value="">a family member or friend mentioned it</option>
+                        <option value="">my doctor's office told me</option>
+                        <option value="">I got an invitation in the mail/I got an invitation in my email.</option>
+                        </select><span class="star"></span>
+                    </p>
+               
+    
+                    <div class="addGuest2">
+                        <span class="guest2" id="guest2">You may add upto 1 guest</span>
+                        <div>
+                            <svg id="addIcon2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <rect x="6" y="6" width="11" height="11" fill="black" />
+                                <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,13h-4v4h-2v-4H7v-2h4V7h2v4h4V13z" fill="#72c7e7" />
+                            </svg>
+                            <span class="guest2_add" id="guest2_add">Add Guest</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="guestForm2" id="guestForm2" style="display: none;">
+                  <p class="formFields">My guest's first name is
+                     <input id="guestfirstNameInput2" type="text" placeholder="their first name" maxlength="20"><span class="star"></span>
+                     and their last name is
+                     <input id="guestlastNameInput2" type="text" placeholder="their last name" maxlength="20" ><span class="star"></span>
+                      They're
+                     <input id="guestageInput2" type="text" placeholder="their age*" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
+                       And you can call me about this program at 
+                     <input id="guestphoneInput2" type="text" placeholder="their phone number*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
+                       Their email is 
+                     <input id="guestemailInput2" type="email" placeholder="their email address*" ><span class="star"></span>
+                       So you can send them program information and details.And again, it's
+                     <input id="guestconfirmEmailInput2" type="email" placeholder="their email address*" ><span class="star"></span> to conform it's correct.
+                     I found out about this program when
+                     <select id="guestdropdown2" name="dropdown" >
+                        <option value="" disabled selected>how I heard.</option>
+                        <option value="">I got a phone call from MyIgSource</option>
+                        <option value="">I saw a posting online</option>
+                        <option value="">I saw a social media post</option>
+                        <option value="">a family member or friend mentioned it</option>
+                        <option value="">my doctor's office told me</option>
+                        <option value="">I got an invitation in the mail/I got an invitation in my email.</option>
+                     </select><span class="star"></span>
+                    </p>
+                </div>
+               </div>
+                <div class="event-cta">
+                    <a href="" id="submit" class="button button-primary" tabindex="0">Sign me up</a> 
+                    <div class="error-message" id="error-message">
+                        <div class="arrow"></div>
+                        <span class="errortextField" id="errortextField"></span>
+                    </div>
+                    
+                    
+                </div>
+            </form>
+
+        </div>
+        
+
+    </div>
+    <script src="./register.js"></script> 
+</body>
+
+</html>
