@@ -4,6 +4,11 @@
     border: none;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
 
 .medicarePI{
     background-color: #72c7e7;
@@ -41,18 +46,6 @@
     
 }
 
-
-.program-description{
-    font-family: "HelveticaNeue";
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 27px;
-    font-style: normal;
-    text-align: left;
-    color: #071d49;
-    width: 500px;
-    height: 40px;
-}
 .prog-desc{
    
     display: flex;
@@ -65,8 +58,8 @@
     letter-spacing: 1px;
 }
 .prog-desc h1{
-font-family: "OpenSans-Extrabold";
-    font-size: 65px;
+    /* font-family: "OpenSans-ExtraBold"; */
+    font-size: 50px;
     color: #071d49;
 }
 .prog-desc p{
@@ -93,7 +86,7 @@ font-family: HelveticaNeue;
 
 .reqField p{
     font-size: 16px;
-    font-family: HelveticaNeue-Bold;
+    font-family:"HelveticaNeue-Bold" ;
     margin-bottom: 15px;
 }
 
@@ -330,8 +323,8 @@ button:hover {
     margin-bottom: 1rem;
     background-color: white;
     position: relative;
-    /* width: 450px; */
-    width: 100%;
+    width: 450px;
+    /* width: 100%; */
     float: right;
 }
 /* @media only screen and (max-width: 1399.98px) {
@@ -482,7 +475,7 @@ button:hover {
 /*COLORS*/
 /*BUTTON*/
 .button {
-    padding: 1rem 3rem;
+    padding: 7px 20px;
     margin-top: 2rem;
     margin-right: 2rem;
     margin-bottom: 2rem;

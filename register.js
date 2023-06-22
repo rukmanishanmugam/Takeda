@@ -39,7 +39,7 @@ document.getElementById('addIcon2').addEventListener('click', function(){
     }
 });
 function showFormField() {
-const select = document.getElementById("dropdown");
+const select = document.getElementById("_PIdropdown");
 const selectedOption = select.options[select.selectedIndex].value;
 console.log(selectedOption);
 
@@ -61,12 +61,20 @@ function restrictToTwoDigits() {
     input.value = input.value.slice(0, 2);
   }
 }
-
-
+//phone number masking
+const phoneInput = document.getElementById('phoneInput');
+    phoneInput.addEventListener('input', (event) => {
+      let value = event.target.value;
+      value = value.replace(/\D/g, ''); // Remove all non-digit characters
+      value = value.replace(/^(\d{3})(\d)/g, '$1-$2'); // Add a hyphen after the first 3 digits
+      value = value.replace(/-(\d{3})(\d)/, '-$1-$2'); // Add a hyphen after the next 3 digits
+      event.target.value = value;
+    });
 
 
 //form validation
 const form = document.getElementById('form');
+const pi_dropdown = document.getElementById('_PIdropdown');
 const firstName = document.getElementById('firstNameInput');
 const lastName = document.getElementById('lastNameInput');
 const age = document.getElementById('ageInput');
@@ -74,6 +82,7 @@ const phoneNumber = document.getElementById('phoneInput');
 const email = document.getElementById('emailInput');
 const confirmEmail = document.getElementById('confirmEmailInput');
 const howIHeard = document.getElementById('howIHeard');
+
 // form.addEventListener('submit', e => {
 //     e.preventDefault();
 //     checkInputs();
@@ -102,12 +111,12 @@ const guesthowIHeard_2 = document.getElementById('guestdropdown2');
 document.getElementById('submit').addEventListener('click', function(e){
     e.preventDefault();
     checkInputs();
-    validateAge(e);
-    validateEmail(e);
+    // validateAge(e);
+    // validateEmail(e);
 });
 
-function validateAge(event) {
-    event.preventDefault();
+function validateAge() {
+
     const ageInput = document.getElementById('ageInput');
     const ageErrorTooltip = document.getElementById('age-error-tooltip');
     const age = parseInt(ageInput.value);
@@ -117,7 +126,8 @@ function validateAge(event) {
       return false;
     } else {
       ageErrorTooltip.classList.remove('show-error');
-      return true;
+      removeError(age);
+    //   return true;
     }
   }
 
@@ -126,39 +136,28 @@ function validateAge(event) {
     return emailRegex.test(email);
   }
 
-//   function validateEmail(event) {
-//     event.preventDefault();
-//     const emailInput = document.getElementById('emailInput');
-//     const emailConfirmationInput = document.getElementById('confirmEmailInput');
-//     const invalidEmailErrorTooltip = document.getElementById('email-error-invalid-tooltip');
-//     const emailErrorTooltip = document.getElementById('email-error-tooltip');
-//     if (!isValidEmail(emailInput.value)) {
-//      invalidEmailErrorTooltip.setAttribute('data-error', 'Error: Invalid email address.');
-//      invalidEmailErrorTooltip.classList.add('show-error');
-//       return false;
-//     } else if (emailInput.value !== emailConfirmationInput.value) {
-//       emailErrorTooltip.setAttribute('data-error', 'Error: Email addresses do not match.');
-//       emailErrorTooltip.classList.add('show-error');
-//       return false;
-//     } else {
-//       invalidEmailErrorTooltip.classList.remove('show-error');
-//       emailErrorTooltip.classList.remove('show-error');
-//       return true;
-//     }
-//   }
-
-
-  function validateEmail(event) {
-    event.preventDefault();
+  function validateEmail() {
+    // event.preventDefault();
     const emailInput = document.getElementById('emailInput');
     const emailConfirmationInput = document.getElementById('confirmEmailInput');
+    const invalidEmailErrorTooltip = document.getElementById('email-error-invalid-tooltip');
     const emailErrorTooltip = document.getElementById('email-error-tooltip');
-
-    if (emailInput.value !== emailConfirmationInput.value) {
+    if (!isValidEmail(emailInput.value)) {
+     invalidEmailErrorTooltip.setAttribute('data-error', 'Error: Invalid email address.');
+     invalidEmailErrorTooltip.classList.add('show-error');
+     setError(email);
+      return false;
+    } else if (emailInput.value !== emailConfirmationInput.value) {
+      emailErrorTooltip.setAttribute('data-error', 'Error: Email addresses do not match.');
       emailErrorTooltip.classList.add('show-error');
+      invalidEmailErrorTooltip.classList.remove('show-error');
+      removeError(email);
       return false;
     } else {
+      invalidEmailErrorTooltip.classList.remove('show-error');
+      removeError(email);
       emailErrorTooltip.classList.remove('show-error');
+      removeError(confirmEmail);
       return true;
     }
   }
@@ -190,7 +189,7 @@ function ageCheck(age){
         setError(age);
     } 
     else{
-        removeError(age);
+        validateAge();
     }
 }
 
@@ -209,13 +208,18 @@ function emailCheck(e_mail){
     if (emailValue === '') {
         setError(e_mail);
     } 
-}
+    else{
+        validateEmail(); 
+    }
+    }
+    
 
 function confirmEmailCheck(emailcheck){
     const confirmEmailValue = emailcheck.value.trim();
     if (confirmEmailValue === '') {
         setError(emailcheck);
     } 
+    
     
 }
 
@@ -228,11 +232,27 @@ function dropdownCheck(select){
         setError(select);
     }
     else{
-   
+        removeError(select);
     }
+    
+}
+
+function piDropdownCheck(select){
+    //const select = document.getElementById("howIHeard");
+    const selectedOption = select.options[select.selectedIndex].value;
+    console.log(selectedOption);
+
+    if(selectedOption==="0"){
+        setError(select);
+    }
+    else{
+        removeError(select);
+    }
+    
 }
 
 function checkInputs() {
+    piDropdownCheck(pi_dropdown)
     firstNameCheck(firstName);
     lastNameCheck(lastName);
     ageCheck(age);
@@ -240,6 +260,7 @@ function checkInputs() {
     emailCheck(email);
     confirmEmailCheck(confirmEmail);
     dropdownCheck(howIHeard);
+    
 
     if(component.style.display === 'block'){
         firstNameCheck(guestfirstName_1);
@@ -273,6 +294,3 @@ function removeError(inputControl){
      inputControl.className= 'input';
 }
 
-function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}

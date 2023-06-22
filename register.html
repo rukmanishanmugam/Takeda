@@ -12,6 +12,10 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./register.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Registration Page</title>
 
     
@@ -22,13 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <!-- <div>
-                    <h6>Program registration</h6>
-                    <h1 class="program-title">Medicare & PI</h1>
-                    <div class="program-description">
-                        <p>Please complete the information in this form for everyone who’s attending. Attendees may add up to two guests.</p>
-                    </div>
-                    </div> -->
+                    
                     <div class="prog-desc">
                         <h6>Program registration</h6>
                         <h1>Medicare & PI</h1>
@@ -88,8 +86,8 @@
                 <div class="textDropdown">
                
                     <label class="dropdown" for="dropdown"> I’m interested in primary immunodeficiency (PI) because I’m</label>
-                    <select id="dropdown" name="dropdown" onchange="showFormField()" >
-                        <option value="" disabled selected>my PI experience</option>
+                    <select id="_PIdropdown" name="dropdown" onchange="showFormField()" >
+                        <option value="0" disabled selected>my PI experience</option>
                         <option value="withPImyself">living with PI myself</option>
                         <option value="carePartner">a care partner for someone with PI</option>
                     </select><span class="star"></span>
@@ -107,7 +105,7 @@
                     <br class="mobile-break">
                     <br class="mobile-break">
                     And you can call me about this program at 
-                    <input id="phoneInput" type="text" placeholder="my phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >.<span class="star"></span>
+                    <input id="phoneInput" type="text" placeholder="my phone number"maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >.<span class="star"></span>
                     <br class="mobile-break">
                     <br class="mobile-break">
                     My email is 
@@ -153,13 +151,13 @@
                         and their last name is
                         <input id="guestlastNameInput1" type="text" placeholder="their last name" maxlength="20" ><span class="star"></span>
                         They're
-                        <input id="guestageInput1" type="number" placeholder="their age*" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
+                        <input id="guestageInput1" type="number" placeholder="their age" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
                          And you can call me about this program at 
-                        <input id="guestphoneInput1" type="text" placeholder="their phone number*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
+                        <input id="guestphoneInput1" type="text" placeholder="their phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
                          Their email is 
-                        <input id="guestemailInput1" type="email" placeholder="their email address*" ><span class="star"></span>
+                        <input id="guestemailInput1" type="email" placeholder="their email address" ><span class="star"></span>
                         So you can send them program information and details.And again, it's
-                        <input id="guestconfirmEmailInput1" type="email" placeholder="their email address*" ><span class="star"></span> to conform it's correct.
+                        <input id="guestconfirmEmailInput1" type="email" placeholder="their email address" ><span class="star"></span> to conform it's correct.
                         I found out about this program when
                         <select id="guestdropdown1" name="dropdown" >
                             <option value="" disabled selected>how I heard.</option>
@@ -191,13 +189,13 @@
                      and their last name is
                      <input id="guestlastNameInput2" type="text" placeholder="their last name" maxlength="20" ><span class="star"></span>
                       They're
-                     <input id="guestageInput2" type="text" placeholder="their age*" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
+                     <input id="guestageInput2" type="text" placeholder="their age" pattern="[0-9]" maxlength="2" ><span class="star"></span> years old.
                        And you can call me about this program at 
-                     <input id="guestphoneInput2" type="text" placeholder="their phone number*" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
+                     <input id="guestphoneInput2" type="text" placeholder="their phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><span class="star"></span>
                        Their email is 
-                     <input id="guestemailInput2" type="email" placeholder="their email address*" ><span class="star"></span>
+                     <input id="guestemailInput2" type="email" placeholder="their email address" ><span class="star"></span>
                        So you can send them program information and details.And again, it's
-                     <input id="guestconfirmEmailInput2" type="email" placeholder="their email address*" ><span class="star"></span> to conform it's correct.
+                     <input id="guestconfirmEmailInput2" type="email" placeholder="their email address" ><span class="star"></span> to conform it's correct.
                      I found out about this program when
                      <select id="guestdropdown2" name="dropdown" >
                         <option value="" disabled selected>how I heard.</option>
