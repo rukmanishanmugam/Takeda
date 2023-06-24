@@ -353,10 +353,14 @@ function checkInputs() {
             dropdownCheck(guesthowIHeard_2);
         }
     }
-    
+    var parentForm = document.getElementById("form"); 
+    if (!parentForm.querySelector(".inputerror")) { 
+        document.getElementById('error-message').style.display='none';
+        }
 }
 
 function setError(inputControl){
+
         document.getElementById('error-message').style.display='inline-block';
         document.getElementById('errortextField').style.display='inline';
         document.getElementById('errortextField').innerHTML="Please fill out every field that is marked with asterisk";
