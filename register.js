@@ -89,11 +89,11 @@ function updateIcon(addGuest,iconAdd){
 //////////
 
 const dropdown = document.getElementById('dropdownValue');
-const dropdownButton = document.getElementById('custom-input');
+const dropdownButton = document.getElementById('inputFocusOut');
 const dropdowninfo = document.getElementById('dropdown-info');
-const dropdownButtoninfo = document.getElementById('custom-input-info');
+const dropdownButtoninfo = document.getElementById('inputFocusOut-info');
 
-document.addEventListener("onclick", (event) => 
+document.addEventListener("click", (event) => 
 {  
     const isClickInsideDropdown = dropdown.contains(event.target); 
     const isClickOnDropdownButton = dropdownButton.contains(event.target); 
@@ -110,7 +110,6 @@ document.addEventListener("onclick", (event) =>
     } 
 
 });
-
 
 ///////////////////////////////////////
 function toggleDropdownInfo() {

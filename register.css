@@ -185,7 +185,7 @@ h6, .h6 {
     width: 69px;
     height: 80px;
     min-width: 69px;
-    background-image: url("../event-date-bg.svg");
+    background-image: url("/event-date-bg.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -367,6 +367,9 @@ h6, .h6 {
     background-color: skyblue;
     border-radius:5px;
   }
+  #inputFocusOut-info{
+    display: inline-block;
+  }
 
 /* Temp Form Field */
 
@@ -445,7 +448,6 @@ input, select, textarea {
 .star::after{
     content: '*';
     color:#F38D68 ;
-    /* line-height: 28px; */
     vertical-align: middle;
     font-weight: 700;
     font-size: 20px;
@@ -473,7 +475,6 @@ input, select, textarea {
 }
 
 .reqField p {
-   
     font-size: 16px;
     margin-bottom: 0;
 }
@@ -862,7 +863,7 @@ button:hover {
     width: 69px;
     height: 80px;
     min-width: 69px;
-    background-image: url("../event-date-bg.svg");
+    background-image: url("./event-date-bg.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }

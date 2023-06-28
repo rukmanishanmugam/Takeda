@@ -85,15 +85,16 @@
                         <option class="optionVal" value="carePartner">a care partner for someone with PI</option>
                     </select> -->
 
-                    <div class="input-container" >
-
-                        <input type="text" class="custom-input" id="custom-input" onclick="toggleDropdown()" placeholder="PI experience" readonly/>
-                        <div class="arrow-icon" onclick="toggleDropdown()">
+                    <div class="input-container" id="focusInvisible" >
+                        <div id="inputFocusOut" >
+                            <input type="text" class="custom-input" id="custom-input" onclick="toggleDropdown()" placeholder="PI experience" readonly/>
+                            <div class="arrow-icon" onclick="toggleDropdown()">
                             <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10 10 L20 20 L30 10" stroke="#72c7e7" stroke-width="4" fill="none" />
                             </svg>
+                            </div>
                         </div>
-
+                        
                         <div class="dropdownValue" id="dropdownValue" >
                             <ul>
                                 <li onclick="handleSelect('Living with PI myself')">Living with PI myself</li>
@@ -143,12 +144,15 @@
                     <br class="mobile-break">
                     I found out about this program when
                     <div class="input-container-info" >
-                        <input type="text" class="custom-input-info" id="custom-input-info" onclick="toggleDropdownInfo()" placeholder="How I Heard"/>
-                        <div class="arrow-icon-info" onclick="toggleDropdownInfo()">
+                        <div id="inputFocusOut-info">
+                            <input type="text" class="custom-input-info" id="custom-input-info" onclick="toggleDropdownInfo()" placeholder="How I Heard"/>
+                            <div class="arrow-icon-info" onclick="toggleDropdownInfo()">
                             <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                              <path d="M10 10 L20 20 L30 10" stroke="skyblue" stroke-width="4" fill="none" />
                             </svg>
+                            </div>
                         </div>
+                        
                         <div class="dropdown-info" id="dropdown-info">
                           <ul>
                             <li onclick="handleSelectInfo('I got a phone call from MyIgSource')">I got a phone call from MyIgSource</li>
