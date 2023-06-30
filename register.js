@@ -4,6 +4,14 @@ const component2 = document.getElementById('guestForm2');
 
 
 document.getElementById('addIcon').addEventListener('click', function(){
+    dynamicGuest();
+});
+
+document.getElementById('addIcon2').addEventListener('click', function(){
+    dynamicGuest2();
+});
+
+function dynamicGuest(){
     const component = document.getElementById('guestForm');
     const component2 = document.getElementById('guestForm2'); 
     console.log(component.style.display);
@@ -12,6 +20,7 @@ document.getElementById('addIcon').addEventListener('click', function(){
         component.style.display = 'block';
         document.getElementById("guest1").textContent="Guest 1";
         document.getElementById("guest1_add").textContent="Remove Guest";
+        updateGuestFormValue1();
         changeIcon(true);
         
 
@@ -33,14 +42,14 @@ document.getElementById('addIcon').addEventListener('click', function(){
         }
         
     }
-});
-
-document.getElementById('addIcon2').addEventListener('click', function(){
+}
+function dynamicGuest2(){
     const component2 = document.getElementById('guestForm2'); 
     if(component2.style.display == 'none'){
         component2.style.display = 'block';
         document.getElementById("guest2").textContent="Guest 2";
         document.getElementById("guest2_add").textContent="Remove Guest"; 
+        updateGuestFormValue2();
         changeIcon2(true); 
     }
     else{
@@ -49,8 +58,7 @@ document.getElementById('addIcon2').addEventListener('click', function(){
         document.getElementById("guest2_add").textContent="Add Guest";
         changeIcon2(false); 
     }
-});
-
+}
 function updateguestValue(){
     guestfirstName_1.value = guestfirstName_2.value;
     guestfirstName_2.value= "";
@@ -63,6 +71,24 @@ function updateguestValue(){
     guestconfirmEmail_1.value = guestconfirmEmail_2.value;
     guestconfirmEmail_2.value="";
     guestphoneNumber_1.value = guestphoneNumber_2.value;
+    guestphoneNumber_2.value="";
+}
+
+function updateGuestFormValue1(){
+    guestfirstName_1.value="";
+    guestlastName_1.value="";
+    guestage_1.value="";
+    guestemail_1.value="";
+    guestconfirmEmail_1.value="";
+    guestphoneNumber_1.value="";
+}
+
+function updateGuestFormValue2(){
+    guestfirstName_2.value="";
+    guestlastName_2.value="";
+    guestage_2.value="";
+    guestemail_2.value="";
+    guestconfirmEmail_2.value="";
     guestphoneNumber_2.value="";
 }
 
@@ -123,10 +149,7 @@ function toggleDropdownInfo() {
   }
 
 ////////////////////
-// document.getElementById("custom-input").addEventListener("click", function() {
-//     toggleDropdown()
-//   });
-
+ 
 function toggleDropdown() {
     const dropdown = document.getElementById('dropdownValue');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -140,6 +163,14 @@ function toggleDropdown() {
     if(textValue==="a carepartner for someone with PI"){
      document.getElementById("addGuest").style.display= 'flex';
         document.getElementById("carePartnerForm").style.display= 'block';
+        if(document.getElementById("guestForm").style.display == 'block'){
+            
+            if(document.getElementById("guestForm2").style.display == 'block'){
+                dynamicGuest2();
+            }
+            dynamicGuest();
+        }
+        
     }
     else{
      document.getElementById("carePartnerForm").style.display= 'none';  
@@ -147,20 +178,6 @@ function toggleDropdown() {
     toggleDropdown();
   
   }
-//form field add guest validation
-function showFormField() {
-const select = document.getElementById("_PIdropdown");
-const selectedOption = select.options[select.selectedIndex].value;
-console.log(selectedOption);
-
-if(selectedOption==="carePartner"){
-    document.getElementById("addGuest").style.display= 'flex';
-    document.getElementById("carePartnerForm").style.display= 'block';
-}
-else{
-    document.getElementById("carePartnerForm").style.display= 'none';  
-}
-}
 
 //age limit to 2 characters
 const input = document.getElementById("ageInput");
@@ -172,19 +189,19 @@ function restrictToTwoDigits() {
   }
 }
 const guestageinput_1 = document.getElementById("guestageInput1");
-guestageinput_1.addEventListener("input", restrictToTwoDigits);
+guestageinput_1.addEventListener("input", restrictToTwoDigits1);
 
 function restrictToTwoDigits1() {
   if (guestageinput_1.value.length > 2) {
-    guestageinput_1.value = input.value.slice(0, 2);
+    guestageinput_1.value = guestageinput_1.value.slice(0, 2);
   }
 }
 const guestageinput_2 = document.getElementById("guestageInput2");
-guestageinput_2.addEventListener("input", restrictToTwoDigits);
+guestageinput_2.addEventListener("input", restrictToTwoDigits2);
 
 function restrictToTwoDigits2() {
   if (guestageinput_2.value.length > 2) {
-    guestageinput_2.value = input.value.slice(0, 2);
+    guestageinput_2.value = guestageinput_2.value.slice(0, 2);
   }
 }
 
@@ -345,6 +362,7 @@ function ageCheck(age,ageErrorTooltip){
     const ageValue = age.value.trim();
     if (ageValue === '') {
         setError(age);
+        ageErrorTooltip.classList.remove('show-error');
     } 
     else{
         validateAge(age,ageErrorTooltip);
@@ -356,6 +374,7 @@ function phoneNumberCheck(pNumber,phoneErrorTooltip){
     const phoneNumberValue = pNumber.value.trim();
     if (phoneNumberValue === '') {
         setError(pNumber);
+        phoneErrorTooltip.classList.remove('show-error');
     }
     else if(phoneNumberValue.toString().length != 12){
         setError(pNumber);
@@ -372,6 +391,7 @@ function emailCheck(e_mail,emailInput,emailConfirmationInput,invalidEmailErrorTo
     const emailValue = e_mail.value.trim();
     if (emailValue === '') {
         setError(e_mail);
+        invalidEmailErrorTooltip.classList.remove('show-error');
     } 
     else{
         validateEmail(emailInput,emailConfirmationInput,invalidEmailErrorTooltip,emailErrorTooltip); 
@@ -443,6 +463,7 @@ function checkInputs() {
     var parentForm = document.getElementById("form"); 
     if (!parentForm.querySelector(".inputerror")) { 
         document.getElementById('error-message').style.display='none';
+        document.getElementById("form").reset();
         window.location.href="../thanks_Medicare.html"
         }
 }

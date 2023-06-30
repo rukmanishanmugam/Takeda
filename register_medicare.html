@@ -115,8 +115,8 @@
                     <br class="mobile-break">
                     <br class="mobile-break">
                     I'm
-                    <span id="age-error-tooltip" class="error-tooltip" data-error="Error: Age must be 18 or older.">
-                        <input id="ageInput" type="number" placeholder="Age" onClick="restrictToTwoDigits()"
+                    <span id="age-error-tooltip" class="error-tooltip" data-error="Age must be 18 or older.">
+                        <input id="ageInput" type="number" placeholder="Age" 
                             required><span class="star"></span>
                     </span>
                     years old.
@@ -144,7 +144,7 @@
                     <br class="mobile-break">
                     I found out about this program when
                     <div class="input-container-info" >
-                        <div id="inputFocusOut-info">
+                        <div id="inputFocusOut-info" style="display:inline-block;">
                             <input type="text" class="custom-input-info" id="custom-input-info" onclick="toggleDropdownInfo()" placeholder="How I Heard"/>
                             <div class="arrow-icon-info" onclick="toggleDropdownInfo()">
                             <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">

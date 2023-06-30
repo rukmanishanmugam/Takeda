@@ -67,8 +67,255 @@
         </div>
     </div>
     
-
     <div class="resgistration-form">
+        <div class="container">
+            <form class="form" id="form">
+                <div class="reqField">
+                    <span class="star mr-2"></span>
+                    <p>Fields with an asterisk are required</p>
+                </div>
+
+                <div class="textDropdown">
+
+                    <label class="dropdown"> I’m interested in primary immunodeficiency (PI) because
+                        I’m</label>
+                    <!-- <select class="_PIdropdown " id="_PIdropdown" name="dropdown" onchange="showFormField()" >
+                        <option class="optionVal" value="0" disabled selected>PI experience</option>
+                        <option class="optionVal" value="withPImyself">living with PI myself</option>
+                        <option class="optionVal" value="carePartner">a care partner for someone with PI</option>
+                    </select> -->
+
+                    <div class="input-container" id="focusInvisible" >
+                        <div id="inputFocusOut" >
+                            <input type="text" class="custom-input" id="custom-input" onclick="toggleDropdown()" placeholder="PI experience" readonly/>
+                            <div class="arrow-icon" onclick="toggleDropdown()">
+                            <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 10 L20 20 L30 10" stroke="#72c7e7" stroke-width="4" fill="none" />
+                            </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdownValue" id="dropdownValue" >
+                            <ul>
+                                <li onclick="handleSelect('Living with PI myself')">Living with PI myself</li>
+                                <li onclick="handleSelect('a carepartner for someone with PI')">a carepartner for
+                                    someone with PI</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="star"></span>
+                </div>
+                <div>
+                    <div class="formFields">Hello! My first name is
+                    <input id="firstNameInput" type="text" placeholder="First Name" maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span
+                        class="star"></span>
+                    and my last name is
+                    <input id="lastNameInput" type="text" placeholder="Last Name" maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span
+                        class="star"></span>
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    I'm
+                    <span id="age-error-tooltip" class="error-tooltip" data-error="Age must be 18 or older.">
+                        <input id="ageInput" type="number" placeholder="Age" 
+                            required><span class="star"></span>
+                    </span>
+                    years old.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    And you can call me about this program at
+                    <span id="phone-error-tooltip" class="error-tooltip" data-error="Enter 10 digits">
+                    <input id="phoneInput" type="text" placeholder="Phone Number" minlength="12" maxlength="12"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><span class="star"></span>
+                    </span>
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    My email is
+                    <span id="email-error-invalid-tooltip" class="error-tooltip" data-error="Error: Invalid Email.">
+                        <input id="emailInput" type="email" placeholder="Email" maxlength="50"><span class="star"></span>
+                    </span>
+                    So you can send me program information and details.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    And again,it's
+                    <span id="email-error-tooltip" class="error-tooltip" data-error="Error: Email do not match.">
+                        <input id="confirmEmailInput" type="email" placeholder="Email" maxlength="50"><span class="star"></span>
+                    </span> to confirm it's correct.
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                    I found out about this program when
+                    <div class="input-container-info" >
+                        <div id="inputFocusOut-info" style="display:inline-block;">
+                            <input type="text" class="custom-input-info" id="custom-input-info" onclick="toggleDropdownInfo()" placeholder="How I Heard"/>
+                            <div class="arrow-icon-info" onclick="toggleDropdownInfo()">
+                            <svg width="30" height="30" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M10 10 L20 20 L30 10" stroke="skyblue" stroke-width="4" fill="none" />
+                            </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown-info" id="dropdown-info">
+                          <ul>
+                            <li onclick="handleSelectInfo('I got a phone call from MyIgSource')">I got a phone call from MyIgSource</li>
+                            <li onclick="handleSelectInfo('I saw a posting online')">I saw a posting online</li>
+                            <li onclick="handleSelectInfo('I saw a social media post')">I saw a social media post</li>
+                            <li onclick="handleSelectInfo('a family member or friend mentioned it')">a family member or friend mentioned it</li>
+                            <li onclick="handleSelectInfo('my doctor\'s office told me')">my doctor's office told me</li>
+                            <li onclick="handleSelectInfo('I got an invitation in the mail/I got an invitation in my email')">I got an invitation in the mail/I got an invitation in my email.</li>
+                          </ul>
+                        </div>
+                        <span class="star"></span>
+                    </div>
+                    
+                    <br class="mobile-break">
+                    <br class="mobile-break">
+                </div>
+                </div>
+                <div id="carePartnerForm">
+                    <div class="addGuest" id="addGuest">
+                        <span class="guest1" id="guest1">You may add upto 2 guests</span>
+                        <div>
+                            <div class="guestIcon" id="addIcon">
+                            </div>
+                            <span class="guest1_add" id="guest1_add">Add my Guest</span>
+                        </div>
+                    </div>
+                    <div class="guestForm" id="guestForm" style="display: none;">
+                        <p class="formFields">My guest's first name is
+                            <input id="guestfirstNameInput1" type="text" placeholder="First Name" maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span
+                                class="star"></span>
+                            and their last name is
+                            <input id="guestlastNameInput1" type="text" placeholder="Last Name" maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span
+                                class="star"></span>
+                            <br class="mobile-break">
+                            <br class="mobile-break">
+                            They're
+                            <span id="g1-age-error-tooltip" class="error-tooltip"
+                                data-error="Error: Age must be 18 or older.">
+                                <input id="guestageInput1" type="number" placeholder="Age"
+                                    onClick="restrictToTwoDigits1()"><span class="star"></span>
+
+                            </span>years old.
+                            <br class="mobile-break">
+                            <br class="mobile-break">
+                            And you can call me about this program at
+                            <span id="g1-phone-error-tooltip" class="error-tooltip" data-error="Enter 10 digits">
+                            <input id="guestphoneInput1" type="text" placeholder="Phone Number" maxlength="12"
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><span class="star"></span>
+                            </span>
+                            <br class="mobile-break">
+                            <br class="mobile-break">
+                            Their email is
+                            <span id="g1-email-error-invalid-tooltip" class="error-tooltip"
+                                data-error="Error: Invalid Email.">
+                                <input id="guestemailInput1" type="email" placeholder="Email" maxlength="50"><span class="star"></span>
+                            </span>
+                            So you can send them program information and details.
+                            <br class="mobile-break">
+                            <br class="mobile-break">
+                            And again, it's
+                            <span id="g1-email-error-tooltip" class="error-tooltip"
+                                data-error="Error: Email do not match.">
+                                <input id="guestconfirmEmailInput1" type="email" placeholder="Email" maxlength="50"><span
+                                    class="star"></span>
+                            </span>
+                            to confirm it's correct.
+                            <br class="mobile-break">
+                            <br class="mobile-break">
+
+                        </p>
+
+
+                        <div class="addGuest2">
+                            <span class="guest2" id="guest2">You may add upto 1 guest</span>
+                            <div>
+                                <div>
+                                    <div class="guestIcon" id="addIcon2">
+                                    </div>
+                                    <span class="guest2_add" id="guest2_add">Add Guest</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="guestForm2" id="guestForm2" style="display: none;">
+                            <p class="formFields">My guest's first name is
+                                <input id="guestfirstNameInput2" type="text" placeholder="First Name"
+                                    maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span class="star"></span>
+                                and their last name is
+                                <input id="guestlastNameInput2" type="text" placeholder="Last Name" maxlength="20" onkeypress="return /[a-zA-Z]/i.test(event.key)"><span
+                                    class="star"></span>
+                                <br class="mobile-break">
+                                <br class="mobile-break">
+                                They're
+                                <span id="g2-age-error-tooltip" class="error-tooltip"
+                                    data-error="Error: Age must be 18 or older.">
+                                    <input id="guestageInput2" type="text" placeholder="Age"
+                                        onClick="restrictToTwoDigits2()"><span class="star"></span>
+                                </span>
+                                years old.
+                                <br class="mobile-break">
+                                <br class="mobile-break">
+                                And you can call me about this program at
+                                <span id="g2-phone-error-tooltip" class="error-tooltip" data-error="Enter 10 digits">
+                                <input id="guestphoneInput2" type="text" placeholder="Phone Number" maxlength="12"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><span class="star"></span>
+                                </span>
+                                <br class="mobile-break">
+                                <br class="mobile-break">
+                                Their email is
+                                <span id="g2-email-error-invalid-tooltip" class="error-tooltip"
+                                    data-error="Error: Invalid Email.">
+                                    <input id="guestemailInput2" type="email" placeholder="Email" maxlength="50"><span
+                                        class="star"></span>
+                                </span>
+                                So you can send them program information and details.
+                                <br class="mobile-break">
+                                <br class="mobile-break">
+
+                                And again, it's
+                                <span id="g2-email-error-tooltip" class="error-tooltip"
+                                    data-error="Error: Email do not match.">
+                                    <input id="guestconfirmEmailInput2" type="email" placeholder="Email" maxlength="50"><span
+                                        class="star"></span>
+                                </span>
+                                to confirm it's correct.
+                                <br class="mobile-break">
+                                <br class="mobile-break">
+
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="event-cta">
+                    <a href="" id="submit" class="button button-primary" tabindex="0">Sign me up</a>
+                    <div class="error-message" id="error-message">
+                        <div class="arrow"></div>
+                        <span class="errortextField" id="errortextField"></span>
+                    </div>
+
+                    <div class="c-regiter__note">
+                        <p>Please see the program invitation for age restrictions of this program.</p>
+                        <p>By providing your information, you consent to receiving marketing and promotional
+                            communications related to Primary Immunodeficiency (PI) and PI products and other
+                            information from Takeda. You hereby give consent to Takeda, its affiliates, and their agents
+                            and representatives to send communications and information to you via the contact
+                            information you have provided above. This consent will be in effect until such time as you
+                            opt out of communications from Takeda.</p>
+                        <p>If, at any time, you no longer wish to receive communications from Takeda, you can opt out by
+                            calling 1-866-888-0660. Please see our <a
+                                href="https://www.shire.com/legal-notice/privacy-notice">Privacy Notice.</a></p>
+                    </div>
+
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <!-- <div class="resgistration-form">
         <div class="container">
             <form class="form" id="form">
                 <div class="reqField">
@@ -243,7 +490,7 @@
         </div>
         
 
-    </div>
+    </div> -->
     <script src="./register.js"></script> 
 </body>
 
